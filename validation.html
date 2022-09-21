@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>Form validation Using javascript</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+   
+  
+<body>
+    <div class="container"><br>
+       <center><h1 style="color: rgb(100, 156, 209);">  Validate And Fill Forms</h1></center><br>
+    </div>
+    
+         <div class="col-lg-8 m-auto d-block">
+             <form action="#" onsubmit="return validation()" class="bg-light">
+
+                <div class="form-group" >
+                    <label  style="color: darkcyan;">Name : </label><br>
+                    <input type="text" name="name" class="form control" id="name" autocomplete="off" >
+                    <span id="username" class="text-danger"></span>
+                </div>
+
+                    <div class="form-group">
+                        <label style="color: darkcyan;">Address : </label><br>
+                        <input type="text" name="Address" class="form control" id="Address"  autocomplete="off">
+                        <span id="dress" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color:darkcyan;">Zip code:</label><br>
+                        <input type="text" name="zipcode" class="form control" id="zipcode" autocomplete="off">
+                        <span id="code" class="text-danger"></span>
+                    </div>
+
+                   
+                         
+                        <div class="form-group">
+                            <label style="color: darkcyan;">Phone number:</label><br>
+                            <input type="text" name="Phonenumber" class="form control" id="Phonenumber" autocomplete="off">
+                            <span id="number" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label style="color: darkcyan;">Email:   </label><br>
+                            <input type= "text " name="Email" class="form control" id="Email" autocomplete="off">
+                            <span id="mail" class="text-danger"></span>
+                        </div>
+                            <div class="form-group">
+                                <label style="color: darkcyan;">Password (6-8 characters):</label><br>
+                                <input type="password" name="password" class="form control" id="password" autocomplete="off">
+                                <span id="pass" class="text-danger"></span>
+                            </div>
+
+                                <div class="form-group">
+                                <label style="color: darkcyan;" >Verify password:</label><br>
+                                <input type=" ver" name="ver" class="form control" id="ver" autocomplete="off">
+                                <span id="very" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color: darkcyan;">Country : </label><br>
+                                    <select name="country" id="countryErr" >
+                                      
+                                        <option >(Please select Your  country)</option><br>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="India">India</option>
+                                        <option value="Russia">Russia</option>
+                                        <option value="USA">USA</option>
+                                        </select><br>
+                                </div>
+                                        <div class="form-group">
+                                            <label style="color: darkcyan;" id="preferences">preferences : </label><br>
+                                            <input type="checkbox" name="preferences" value="Webseries" />Webseries
+                                             <input type="checkbox" name="preferences" value="Webseries" />Movie
+                                            <input type="checkbox" name="preferences" value="Webseries"  />Animation<br>
+                                            <span id="web" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                       
+                                            <label style="color: darkcyan;" id="gender" >Gender : </label><br>
+                                            <input type="radio" name="gender" value="Male" id="male">Male 
+                                            <input type="radio" name="gender" value="Female" id="female"> Female 
+                                        </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                    
+                <center><input type="submit" name="submit" value="submit" onclick="return val();" class=". btn btn-primary">
+               </center>
+            <
+             </form>
+         </div>
+     </div>
+     <script type="text/javascript">
+     
+    
+    function validation(){
+        var name = document.getElementById('name').value;
+        var Address = document.getElementById('Address').value;
+        var zipcode = document.getElementById('zipcode').value;
+        
+        var Phonenumber = document.getElementById('Phonenumber').value;
+        var Email= document.getElementById('Email').value;
+        var password= document.getElementById('password').value;
+        var ver= document.getElementById('ver').value;
+        if(name == ""){
+            document.getElementById('username').innerHTML = "Please Enter Your Name";
+            return false;
+        
+        }
+        if(!isNaN(name)){
+            document.getElementById('username').innerHTML = "Numbers not allowed";
+            return false;
+        
+        }
+        if(Address == ""){
+            document.getElementById('dress').innerHTML = "Please Enter Your Address";
+            return false;
+        }
+            if((Address.length <=5)|| (Address.length>20)){
+            document.getElementById('dress').innerHTML = "Address should be atleast 5 charactors";
+            return false;
+        }
+        if(zipcode == ""){
+            document.getElementById('code').innerHTML = "Please Enter Your zip code";
+            return false;
+        }  
+         if(isNaN(zipcode)){
+            document.getElementById('code').innerHTML="Allowed Digits Only ";
+            return false;
+        }
+         if(zipcode.length !=6){
+            document.getElementById('code').innerHTML="Zip code must be  6 digits ";
+            return false;
+        }
+        
+        if( Phonenumber == ""){
+            document.getElementById('number').innerHTML = "Enter Your Number";
+            return false;
+            }
+         
+        if(isNaN(Phonenumber)){
+            document.getElementById('number').innerHTML="Allowed Digits Only ";
+            return false;
+        }
+        if(Phonenumber.length!=10){
+            document.getElementById('number').innerHTML="Mobile Number must be atleast 10 digits ";
+            return false;
+        }
+        if( Email == ""){
+            document.getElementById('mail').innerHTML = "Provide your Emil address";
+            return false;
+      }
+      if( Email.indexOf('@')<=0 ){
+            document.getElementById('mail').innerHTML = "where is  @";
+            return false;
+      }
+      if(( Email.charAt(Email.length-4)!='.') && (Email.charAt(Email.length-3))!='.'){
+        document.getElementById('mail').innerHTML = "Enter .com after @";
+            return false;
+      }
+      if( password == ""){
+            document.getElementById('pass').innerHTML = "fill password field";
+            return false;
+    }
+    if((password.length <=8 || (password.length > 10))){
+        document.getElementById('pass').innerHTML = "password length must between 8 to 10 ";
+            return false;
+      }
+   if(password!=ver){
+    document.getElementById('very').innerHTML = "password is not matching";
+            return false;
+   }
+    if (ver == ""){
+        document.getElementById('very').innerHTML = "enter same like typed password";
+            return false;
+    }
+}
+    </script>
+</body>
+</html>
+     
